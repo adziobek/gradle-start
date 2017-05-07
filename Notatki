@@ -1,0 +1,34 @@
+------------------------------------------------------------------------
+----------------------- Notatki Maven ----------------------------------
+------------------------------------------------------------------------
+lifecycle, phase, goal, plugin
+
+lifecykle - 3 główne cykle projektowe (domyślny, clean, site).
+Każdy cykl składa się z faz. Default składa się z faz od validate, compile po deploy. Fazy są powiązane z 0 lub więcej goals.
+Gdy jest dana faza wywoływana to wywoływane są wszystkie goals powiązane z tymi fazami.
+
+phase - jest 8 głównych faz, każda może być powiązana z 0 lub więcej goli. Jeśli wołamy
+mvn install - to wołane są wszystkie fazy aż do fazy install włącznie i wszystkie gole powiązane z poszczególnymi fazami
+
+goals - zadania, mogą być powiązane, podpięte pod fazy. Są zebrane w jakimś pluginsie.
+
+plugin - wtyczka. Zawiera gole, które mogą być podpięte pod fazy(0,1,2 lub więcej)
+
+Gdy wołamy:
+mvn intall - wykonują się po kolei wszystkie fazy(powiązane z nimi cele) aż do fazy install włącznie
+
+Gdy wołamy:
+mvn jar:jar - wykonuje się tylko jeden goal, w tym przypadku zostanie utworzona paczka jar. Jednak będzie pusta bo wcześniej nie
+został wywołany goal compiler:compile.
+
+
+====
+Aby zobaczyć dostępne gole dla plugina wywołujemy(np dla plugina help)
+mvn help:help
+---
+Aby zobaczyć listę parametrów wywołania danego goal wywołujemy(dla plugina:
+mvn help:describe -Dplugin=help -Dfull=true
+
+======
+Aby sprawdzić wersję javy dla pliku po skompilowaniu:
+javap -verbose MyClass | findstr "major"
