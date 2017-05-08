@@ -32,3 +32,11 @@ mvn help:describe -Dplugin=help -Dfull=true
 ======
 Aby sprawdzić wersję javy dla pliku po skompilowaniu:
 javap -verbose MyClass | findstr "major"
+
+------------------------------------------------------------------------
+----------------------- Notatki Gradle ---------------------------------
+------------------------------------------------------------------------
+Gradle Wrapper - służy do budowania projektu w środowisku, na którym nie ma zainstalowanego
+                gradle(np. na serwerach testowych CI - jenkins)
+Gradle wymaga zainstalowanego JDK i ustawionej ścieżki JAVA_HOME.
+Jest napisany w Javie i Groovy i korzysta z własnych bibliotek Groovy.
